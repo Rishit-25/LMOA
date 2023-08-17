@@ -3,7 +3,9 @@ def change(l):
         l[i],l[i+1]=l[i+1],l[i]
 
     print(l)
+    
 
 l= input("")
 l=list(l)
 change(l)
+
