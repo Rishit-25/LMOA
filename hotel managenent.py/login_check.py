@@ -3,7 +3,7 @@ import sqlite3
 conn = sqlite3.connect("HOTEL MANAGEMENT.db")
 cursor = conn.cursor()
 
-cursor.execute ('''SELECT * FROM login_table''')
+print(cursor.execute ('''SELECT * FROM login_table'''))
 
 r= cursor.fetchall()
 

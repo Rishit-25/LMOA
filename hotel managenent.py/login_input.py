@@ -3,17 +3,13 @@ import sqlite3
 conn = sqlite3.connect("HOTEL MANAGEMENT.db")
 cursor = conn.cursor()
     
-cursor.execute('''
-                CREATE TABLE  login_table (
-                    email_id text ,
-                    password  text PRIMARY KEY       )
-            ''')
-login_records = [ "rifjsn "  , "hdbij",
-                "rifjsn "  ,"jhvedjhb" ,
-                "rishitgmail.com" ,"ojhljh",
-                "rishitgmail.com" ,"jnbgdfhb" ,
-                "rishitgmail.com" , "gkjhgjb n",
-                "rishitgmail.com" , "rlhgifb",
+
+login_records = [ "rifjsn "  , "hdbij"
+                "rifjsn "  ,"jhvedjhb" 
+                "rishitgmail.com" ,"ojhljh"
+                "rishitgmail.com" ,"jnbgdfhb" 
+                "rishitgmail.com" , "gkjhgjb n"
+                "rishitgmail.com" , "rlhgifb"
                 "rishitgmail.com", " no"  
                 ]
                 

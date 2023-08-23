@@ -1,0 +1,7 @@
+myfile1 = open("marks.dat", "r")
+myfile2 = open("Otherfile.dat", "w+")
+l = myfile1.readlines()
+print(l)
+myfile2.writelines(l)
+content = myfile2.readlines()
+print(content)
