@@ -10,7 +10,7 @@ def Room_table():
                     CREATE TABLE Room_table (
                         Room_no  integer ,
                         Room_type text,
-                        Avaibility text integer
+                        Avaibility integer
                          )
                 ''')
 

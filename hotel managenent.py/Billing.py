@@ -1,13 +1,7 @@
 import sqlite3
+import  datetime
 
-
-
-
-
-
-def booking( name,email,adults,number,room_type):
-    
-    
+def billing( Room_no):
     conn = sqlite3.connect("HOTEL MANAGEMENT.db")
     cursor = conn.cursor()
         
@@ -33,6 +27,3 @@ def booking( name,email,adults,number,room_type):
         else:
             print(i)
             i=i+1
-        
-        
-booking("Rishit" , "Rishitaggarwal@gmail.com" , 3 , 8527623368 , "Deluxe room") 
