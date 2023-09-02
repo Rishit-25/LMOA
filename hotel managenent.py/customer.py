@@ -3,7 +3,7 @@ import sqlite3
 
 
 def login_table():
-     conn = sqlite3.connect("HOTEL MANAGEMENT.db")
+    conn = sqlite3.connect("HOTEL MANAGEMENT.db")
     cursor = conn.cursor()
         
     cursor.execute('''
