@@ -39,7 +39,7 @@ def booking( name,email,adults,number,room_type):
             print(i)
             i=i+1
 
-booking("Rishit Aggarwal" , "2445@gmail.com" , 3 , 647643, "Deluxe room")
+booking("Rishit Aggarwal" , "2445@gmail.com" , 3 , 647643, "standard room")
         
         
 
