@@ -6,7 +6,7 @@ import datetime
 def booking( name,email,adults,number,room_type):
     #Finding the current date and time
     current_datetime= datetime.datetime.now()
-    date = current_datetime.strftime("%Y-%m-%d %H:%M:%S")    
+    date = current_datetime.strftime("%Y-%m-%d %H:%M:%S.%f")    
     
     
     conn = sqlite3.connect("HOTEL MANAGEMENT.db")
@@ -21,15 +21,15 @@ def booking( name,email,adults,number,room_type):
     while i<=(len(r) - 1):
         if r[i][1] == room_type  and r[i][2] == 1:
             #Inserting values in the booking table
-            cursor.execute('''INSERT INTO  Booking_table(Room_no , Room_type ,name ,email,number , adults ) 
-                           VALUES(?,?,?,?,?,?)  ''' , (  r[i][0] ,r[i][1] ,name,email,number,adults ))
+            cursor.execute('''INSERT INTO  Booking_table(Room_no , Room_type , name , email , number , adults , DATE) 
+                           VALUES(?,?,?,?,?,?,?)  ''' , (  r[i][0] ,r[i][1] , name , email , number , adults , current_datetime ))
             
             #Updating the Avaibility of the room 
             cursor.execute(''' UPDATE Room_table SET Avaibility = ? WHERE Room_no = ? ''' ,(0,r[i][0]))
 
             #Inserting values in the mother table
             cursor.execute('''INSERT INTO  Mother_table(name,phone_no , email_id , Room_type , Room_no ,check_in , check_out , Paid_Amount ) 
-                           VALUES(?,?,?,?,?,?,?,?)  ''' , ( name, number,email,r[i][1],r[i][0] , date , "--", "--"  ))
+                           VALUES(?,?,?,?,?,?,?,?)  ''' , ( name, number,email,r[i][1],r[i][0] , date , "--", 0  ))
             
             conn.commit()
             print("kaam ho gya")

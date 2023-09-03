@@ -1,4 +1,4 @@
-import sqlite
+import sqlite3
 
 def Booking_table():
     conn = sqlite3.connect("HOTEL MANAGEMENT.db")
@@ -12,8 +12,8 @@ def Booking_table():
                         email text,
                         number integer,
                         adults integer,
-                        DATE TEXT
-                        time text
+                        DATE date
+                       
                          )
                 ''')
 
