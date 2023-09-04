@@ -55,7 +55,7 @@ def reservations():
    
    
    
-   def login_table(inputed_data):
+def login_table(inputed_data):
     conn = sqlite3.connect("HOTEL MANAGEMENT.db")
     cursor = conn.cursor()
         
@@ -83,15 +83,15 @@ def reservations():
    
    
    
-    def display():
-                                ]
-            for i in range (0,len(insert_data),7 ):
-                                        
-                        cursor.execute('''INSERT INTO total_customers (first_name,second_name, phone_no , email_id , reservations , check_in , check_out ) 
-                                    VALUES(?,?,?,?,?,?,?) ''',(insert_data[i],insert_data[i+1],insert_data[i+2],insert_data[i+3],insert_data[i+4],insert_data[i+5],insert_data[i+6] )  )      
-            cursor.execute("SELECT * FROM total_customers")
+def display():
+]
+for i in range (0,len(insert_data),7 ):
 
-            r= cursor.fetchall()
+cursor.execute('''INSERT INTO total_customers (first_name,second_name, phone_no , email_id , reservations , check_in , check_out ) 
+VALUES(?,?,?,?,?,?,?) ''',(insert_data[i],insert_data[i+1],insert_data[i+2],insert_data[i+3],insert_data[i+4],insert_data[i+5],insert_data[i+6] )  )      
+cursor.execute("SELECT * FROM total_customers")
 
-            print(r)
+r= cursor.fetchall()
+
+print(r)
 

@@ -14,7 +14,8 @@ def Mother_table():
                         Room_no integer,
                         Room_type  text,
                         check_in text,
-                        check_out text,  
+                        check_out text,
+                        advance_booking text,  
                         Paid_Amount integer      )
                 ''')
 

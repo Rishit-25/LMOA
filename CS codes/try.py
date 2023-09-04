@@ -1,2 +1,2 @@
-a=oct(1234557)
-print(int(a))
+a="ahjdfklwvndil"
+print(a[2:5])

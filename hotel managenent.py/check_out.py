@@ -17,5 +17,5 @@ def check_out(Room_no):
     conn.commit()
     print("Room now Available")
 
-check_out(202)
+check_out(204)
 

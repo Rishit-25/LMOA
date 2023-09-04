@@ -1,16 +1,20 @@
 import sqlite3
-import datetime
 
 
 
-def booking( name,email,adults,number,room_type):
-    #Finding the current date and time
-    current_datetime= datetime.datetime.now()
-    date = current_datetime.strftime("%Y-%m-%d %H:%M:%S.%f")    
-    
+
+def booking( name,email,adults,number,room_type,checkin_date):
     
     conn = sqlite3.connect("HOTEL MANAGEMENT.db")
     cursor = conn.cursor()
+    start_date = datetime.datetime.strptime(start_date_str, '%d-%m-%Y')
+    end_date = datetime.datetime.strptime(end_date_str, '%d-%m-%Y')
+    
+    current_date = start_date
+    
+    while current_date <= end_date:
+        print(current_date.strftime('%Y-%m-%d'))
+        current_date += datetime.timedelta(days=1) 
         
     cursor.execute("SELECT * FROM Room_table")
 
@@ -22,24 +26,24 @@ def booking( name,email,adults,number,room_type):
         if r[i][1] == room_type  and r[i][2] == 1:
             #Inserting values in the booking table
             cursor.execute('''INSERT INTO  Booking_table(Room_no , Room_type , name , email , number , adults , DATE) 
-                           VALUES(?,?,?,?,?,?,?)  ''' , (  r[i][0] ,r[i][1] , name , email , number , adults , current_datetime ))
+                           VALUES(?,?,?,?,?,?,?)  ''' , (  r[i][0] ,r[i][1] , name , email , number , adults , checkin_date ))
             
             #Updating the Avaibility of the room 
             cursor.execute(''' UPDATE Room_table SET Avaibility = ? WHERE Room_no = ? ''' ,(0,r[i][0]))
 
             #Inserting values in the mother table
             cursor.execute('''INSERT INTO  Mother_table(name,phone_no , email_id , Room_type , Room_no ,check_in , check_out , Paid_Amount ) 
-                           VALUES(?,?,?,?,?,?,?,?)  ''' , ( name, number,email,r[i][1],r[i][0] , date , "--", 0  ))
+                           VALUES(?,?,?,?,?,?,?,?)  ''' , ( name, number,email,r[i][1],r[i][0] , checkin_date , "--", 0  ))
             
             conn.commit()
             print("kaam ho gya")
             return(r[i][0])
-            break
+        
         else:
             print(i)
             i=i+1
 
-booking("Rishit Aggarwal" , "2445@gmail.com" , 3 , 647643, "standard room")
+booking("Rishit Aggarwal" , "2445@gmail.com" , 3 , 647643, "standard room","22/06/23")
         
         
 
