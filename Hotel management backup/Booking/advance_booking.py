@@ -48,10 +48,10 @@ def advance_booking(name , email , adults , number , room_type , preference , sp
                            VALUES(?,?,?,?,?,?,?,?,?)  ''' , ( name, number,email,r[i][1],r[i][0] , checkin_date , checkout_date,"yes", 0  ))
                     
             #Inserting dates into room table
-                    cursor.execute('''UPDATE  Room _table SET reserved_dates = ?  WHERE Room_no = ?
-                           VALUES(?,?)  ''' , ( d, r[i][0] ))
+                    cursor.execute('''INSERT INTO  Mother_table(name , phone_no , email_id , Room_type , Room_no ,check_in , check_out ,advance_booking, Paid_Amount ) 
+                           VALUES(?,?,?,?,?,?,?,?,?)  ''' , ( name, number,email,r[i][1],r[i][0] , checkin_date , checkout_date,"yes", 0  ))
 
-
+                           
                     conn.commit()
 
                 break

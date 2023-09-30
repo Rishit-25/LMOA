@@ -12,10 +12,10 @@ def Booking_table():
                         email text,
                         number integer,
                         adults integer,
-                        Advance_booking text,
+                        preference text , 
                         reserved_dates text
                        
                          )
                 ''')
-
+ 
 Booking_table()
