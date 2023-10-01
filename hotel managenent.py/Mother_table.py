@@ -11,12 +11,13 @@ def Mother_table():
                         name  text,
                         phone_no integer,
                         email_id text,
+                        adults integer,
                         Room_no integer,
                         Room_type  text,
                         check_in text,
                         check_out text,
-                        advance_booking text,  
-                        Paid_Amount integer      )
+                        reserved_dates text,  
+                        Amount_payable integer      )
                 ''')
 
 Mother_table()

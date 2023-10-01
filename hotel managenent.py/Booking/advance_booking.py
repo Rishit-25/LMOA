@@ -15,13 +15,19 @@ def advance_booking(name , email , adults , number , room_type , preference , sp
     current_date = start_date
 
     while current_date <= end_date:
-        dates_reserved.append(current_date.strftime('%Y-%m-%d'))
+        dates_reserved.append(current_date.strftime('%d-%m-%Y'))
         current_date += datetime.timedelta(days=1)
-    print(dates_reserved)
+    print("dates reserved = " , dates_reserved)
+
+    dates_reserved_str =""
+
+    for f in dates_reserved:
+        dates_reserved_str = dates_reserved_str + f + " , "
+
             
     cursor.execute("SELECT * FROM Room_table")
     r= cursor.fetchall()
-    print(r)
+    print("room_table= " , r ) 
 
     
     
@@ -30,31 +36,50 @@ def advance_booking(name , email , adults , number , room_type , preference , sp
         #Selecting the row of the room no trying to be booked
         
         #
+        print(r[i][2])
         if r[i][1] == room_type and r[i][2] == preference :
 
-            cursor.execute(''' SELECT reserved_dates FROM Room_table WHERE Room_no = ?''' , (r[i][0]))
+            cursor.execute(''' SELECT reserved_dates FROM Room_table WHERE Room_no = ?''' , (r[i][0] ,))
             c= cursor.fetchall()
-            print(c)
+            print("reserved dates from the rrom table = " , c )
+            g=0
             for k in dates_reserved:
-                if k in  c[0] :
+                if k in  c[0][0] :
                     i=i+1
+                    break
+                
                 else:
+                    g=1
+                    
+            # Finding the reserved dates of all the days the room has been booked
+            if g == 1 :
+            
+                    x = c[0][0]
+                    print(x)
+                    y=x
+
+                    for h in dates_reserved:
+                        print(h)
+                        y = y + h +  " , " 
+                    print("y=" , y)
+
+
                     cursor.execute('''INSERT INTO  Booking_table(Room_no , Room_type , name , email , number , adults , preference , reserved_dates ) 
-                           VALUES(?,?,?,?,?,?,?,?)  ''' , (  r[i][0] ,r[i][1] , name , email , number , adults , preference, dates_reserved  ))
+                           VALUES(?,?,?,?,?,?,?,?)  ''' , (  r[i][0] ,r[i][1] , name , email , number , adults , preference, dates_reserved_str ))
 
             #Inserting values in the mother table
                     
-                    cursor.execute('''INSERT INTO  Mother_table(name , phone_no , email_id , Room_type , Room_no ,check_in , check_out ,advance_booking, Paid_Amount ) 
-                           VALUES(?,?,?,?,?,?,?,?,?)  ''' , ( name, number,email,r[i][1],r[i][0] , checkin_date , checkout_date,"yes", 0  ))
+                    cursor.execute('''INSERT INTO  Mother_table(name , phone_no , email_id ,adults, Room_type , Room_no ,check_in , check_out ,reserved_dates, Amount_payable ) 
+                           VALUES(?,?,?,?,?,?,?,?,?,?)  ''' , ( name, number , email , adults , r[i][1] , r[i][0] , checkin_date , checkout_date, dates_reserved_str ,  0  ))
                     
             #Inserting dates into room table
-                    cursor.execute('''UPDATE  Room _table SET reserved_dates = ?  WHERE Room_no = ?
-                           VALUES(?,?)  ''' , ( d, r[i][0] ))
+                    cursor.execute('''UPDATE Room_table SET reserved_dates = ? WHERE Room_no = ?''',  ( y, r[i][0] ))
 
 
                     conn.commit()
+                    break
 
-                break
+                
 
         
        
@@ -63,7 +88,7 @@ def advance_booking(name , email , adults , number , room_type , preference , sp
             print(i)
             i=i+1
 
-advance_booking("Rishit Aggarwal" , "2445@gmail.com" , 3 , 647643, "standard room","22-06-2023" , "26-06-2023")
+advance_booking( name = "Rishit Aggarwal" , email = "2445@gmail.com" , adults = 3  , number = 647643 , room_type = "standard room", preference ="Smoking rooms",special_preference="nil" , checkin_date = "22-06-2023" , checkout_date = "26-06-2023")
         
         
 

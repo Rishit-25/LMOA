@@ -113,10 +113,10 @@ insert_data = [
 
         ]
 
-for i in range (0,len(insert_data),3 ):
+for i in range (0,len(insert_data),4 ):
                                 
-    cursor.execute('''INSERT INTO Room_table (Room_no , Room_type,Avaibility) 
-                    VALUES(?,?,?) ''',(insert_data[i],insert_data[i+1],insert_data[i+2] )  ) 
+    cursor.execute('''INSERT INTO Room_table (Room_no , Room_type,preference,reserved_dates) 
+                    VALUES(?,?,?,?) ''',(insert_data[i],insert_data[i+1],insert_data[i+2],insert_data[i+3] )  ) 
     conn.commit()    
 
 cursor.execute("SELECT * FROM Room_table")

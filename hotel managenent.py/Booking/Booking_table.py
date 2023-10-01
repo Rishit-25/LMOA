@@ -6,14 +6,14 @@ def Booking_table():
         
     cursor.execute('''
                     CREATE TABLE Booking_table (
-                        Room_no  integer  PRIMARY KEY,
+                        Room_no  integer  ,
                         Room_type text,
                         name text,
                         email text,
                         number integer,
                         adults integer,
                         preference text , 
-                        reserved_dates text
+                        reserved_dates 
                        
                          )
                 ''')
