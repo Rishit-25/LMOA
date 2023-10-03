@@ -4,14 +4,7 @@ import  datetime
 def billing( Room_no):
     conn = sqlite3.connect("HOTEL MANAGEMENT.db")
     cursor = conn.cursor()
-    start_date = datetime.datetime.strptime(start_date_str, '%Y-%m-%d')
-    end_date = datetime.datetime.strptime(end_date_str, '%Y-%m-%d')
-    
-    current_date = start_date
-    
-    while current_date <= end_date:
-        print(current_date.strftime('%Y-%m-%d'))
-        current_date += datetime.timedelta(days=1)
+   
 
 
 
@@ -65,3 +58,17 @@ def billing( Room_no):
 
 
 billing(101)
+
+
+
+
+
+
+start_date = datetime.datetime.strptime(start_date_str, '%Y-%m-%d')
+end_date = datetime.datetime.strptime(end_date_str, '%Y-%m-%d')
+    
+current_date = start_date
+    
+while current_date <= end_date:
+    print(current_date.strftime('%Y-%m-%d'))
+    current_date += datetime.timedelta(days=1)
