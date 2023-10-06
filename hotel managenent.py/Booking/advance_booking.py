@@ -3,7 +3,7 @@ import datetime
 
 
 
-def advance_booking(name , email , adults , number , room_type , preference , gym , mini_bar , extra_bed ,break_fast, checkin_date , checkout_date ):
+def advance_booking(name , email , adults , number , room_type , preference , gym , mini_bar , extra_bed , checkin_date , checkout_date ):
     
     
     conn = sqlite3.connect("HOTEL MANAGEMENT.db")
@@ -64,13 +64,13 @@ def advance_booking(name , email , adults , number , room_type , preference , gy
                         print("y=" , y)
 
 
-                    cursor.execute('''INSERT INTO  Booking_table(Room_no , Room_type , name , email , number , adults , preference  ,gym , mini_bar , extra_bed ,break_fast, reserved_dates ) 
-                           VALUES(?,?,?,?,?,?,?,?,?,?,?,?)  ''' , (  r[i][0] ,r[i][1] , name , email , number , adults , preference,  gym , mini_bar , extra_bed , break_fast ,dates_reserved_str ))
+                    cursor.execute('''INSERT INTO  Booking_table(Room_no , Room_type , name , email , number , adults , preference  ,gym , mini_bar , extra_bed , reserved_dates ) 
+                           VALUES(?,?,?,?,?,?,?,?,?,?,?)  ''' , (  r[i][0] ,r[i][1] , name , email , number , adults , preference,  gym , mini_bar , extra_bed ,  dates_reserved_str ))
 
             #Inserting values in the mother table
                     
-                    cursor.execute('''INSERT INTO  Mother_table(name , phone_no , email_id ,adults, Room_type , Room_no , gym , mini_bar , extra_bed ,break_fast,check_in , check_out ,reserved_dates, Amount_payable ) 
-                           VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)  ''' , ( name, number , email , adults , r[i][1] , r[i][0] , gym , mini_bar , extra_bed , break_fast,checkin_date , checkout_date, dates_reserved_str ,  0  ))
+                    cursor.execute('''INSERT INTO  Mother_table(name , phone_no , email_id ,adults, Room_type , Room_no , gym , mini_bar , extra_bed ,check_in , check_out ,reserved_dates, Amount_payable ) 
+                           VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)  ''' , ( name, number , email , adults , r[i][1] , r[i][0] , gym , mini_bar , extra_bed ,checkin_date , checkout_date, dates_reserved_str ,  0  ))
                     
             #Inserting dates into room table
                     cursor.execute('''UPDATE Room_table SET reserved_dates = ? WHERE Room_no = ?''',  ( y, r[i][0] ))
@@ -88,7 +88,7 @@ def advance_booking(name , email , adults , number , room_type , preference , gy
             print(i)
             i=i+1
 
-advance_booking( name = "Rishit Aggarwal" , email = "2445@gmail.com" , adults = 3  , number = 647643 , room_type = "standard room", preference ="Smoking rooms", gym="yes" , mini_bar="yes" , extra_bed ="yes" ,break_fast="yes" , checkin_date = "27-06-2023" , checkout_date = "28-06-2023")
+advance_booking( name = "Rishit Aggarwal" , email = "2445@gmail.com" , adults = 3  , number = 647643 , room_type = "standard room", preference ="Smoking rooms", gym="yes" , mini_bar="yes" , extra_bed ="yes" , checkin_date = "23-06-2023" , checkout_date = "24-06-2023")
         
         
 
