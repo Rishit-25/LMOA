@@ -1,7 +1,7 @@
 import sqlite3
 import  datetime
 
-def billing( Room_no):
+def billing( Room_no,name):
     conn = sqlite3.connect("HOTEL MANAGEMENT.db")
     cursor = conn.cursor()
    
@@ -10,15 +10,19 @@ def billing( Room_no):
 
     
     try:
-        cursor.execute(''' SELECT check_in,check_out FROM MOther_table WHERE Room_no = ? And Paid_Amount=? and check_out != ?''' , (Room_no,0 , "--"))
-    
-
+        cursor.execute(''' SELECT * FROM MOther_table WHERE Room_no = ? And name = ? ''' , (Room_no, name )) 
         r=cursor.fetchall()
+        print(r)
+
+
+        room_type = r[0][5]
+        gym =  r[0][6]
+        mini_bar =  r[0][7]
+        extra_bed =  r[0][8]
+
+       
         
-        cursor.execute(''' SELECT Room_type FROM MOther_table WHERE Room_no = ? And Paid_Amount=? and check_out != ?''' , (Room_no,0 , "--"))
-        r2=cursor.fetchall()
         
-        room_type = r2[0][0]
     
 
     
@@ -57,7 +61,7 @@ def billing( Room_no):
 
 
 
-billing(101)
+billing(125)
 
 
 
