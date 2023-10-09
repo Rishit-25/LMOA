@@ -9,6 +9,7 @@ def Mother_table():
     cursor.execute('''
                     CREATE TABLE Mother_table (
                         name  text,
+                        booking_id integer PRIMARY KEY,
                         phone_no integer,
                         email_id text,
                         adults integer,

@@ -4,6 +4,9 @@ import datetime
 past =[]
 present=[]
 future =[]
+past_date = []
+present_date=[]
+future_date =[]
 
 def sorting_time():
 
@@ -19,11 +22,12 @@ def sorting_time():
     i=0
     
     while i <=(len(m)-1):
-        d = m[i][9] 
+        d = m[i][10] 
         print(d)
         
-        date = datetime.datetime.strptime(d , "%d-%m-%Y").date()
+        date = datetime.datetime.strptime( d , "%d-%m-%Y").date()
         print(date)
+             
         if date <  current_date:
             past.append(m[i])
             i=i+1
@@ -33,10 +37,20 @@ def sorting_time():
         else:
             future.append(m[i])
             i=i+1
-
+        
         for i in past :
+            date_objects = datetime.datetime.strptime( i[10] , "%d-%m-%Y").date()
+            print(date_objects)
+            past_date.append(date_objects)
+        
+        for i in past :
+            date_past = datetime.datetime.strptime( i , "%d-%m-%Y").date()
+            print(date_past)
+            if date_past == max(past_date):
+                c = max(past_date)
+                del(c)
+                
             
-        date_objects = datetime.datetime.strptime(date, "%d-%m-%Y").date()
 
 sorting_time()
 

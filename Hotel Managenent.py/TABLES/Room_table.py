@@ -1,7 +1,7 @@
 import sqlite3
 
 
-
+                                                      
 def Room_table():
     conn = sqlite3.connect("HOTEL MANAGEMENT.db")
     cursor = conn.cursor()
