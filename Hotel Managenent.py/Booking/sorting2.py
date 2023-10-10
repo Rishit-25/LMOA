@@ -18,7 +18,6 @@ def sorting_time():
 
     cursor.execute("SELECT * FROM Mother_table")
     m = cursor.fetchall()
-    print(m)
 
     current_date = datetime.datetime.now().date()
     print(current_date)
@@ -42,17 +41,13 @@ def sorting_time():
             future.append(m[i])
             i=i+1
         
-        for k in past :
-            print("this is date in past list " , k[10])
-            print(type(k[10]))
-            date_objects1 = datetime.datetime.strptime( k[10] , "%d-%m-%Y").date()
+        for i in past :
+            date_objects1 = datetime.datetime.strptime( i[10] , "%d-%m-%Y").date()
             print(date_objects1)
             past_date.append(date_objects1)
         
-        for k in past_date :
-            print(type(k))
-            print("this past date" , k)
-            date_past = k
+        for i in past_date :
+            date_past = datetime.datetime.strptime( i , "%d-%m-%Y").date()
             print(date_past)
             if date_past == max(past_date):
                 c = max(past_date)
@@ -61,7 +56,38 @@ def sorting_time():
                     if date_obj == date_past :     
                         past1.append(j)
                 del(c)
+        
+        
+        for i in present :
+            date_objects2 = datetime.datetime.strptime( i[10] , "%d-%m-%Y").date()
+            print(date_objects2)
+            present_date.append(date_objects2)
+        
+        for i in present :
+            date_present = datetime.datetime.strptime( i , "%d-%m-%Y").date()
+            print(date_past)
+            if date_present == max(present_date):
+                c = max(present_date)
+                del(c)
+        
+        
+        for i in future :
+            date_objects3 = datetime.datetime.strptime( i[10] , "%d-%m-%Y").date()
+            print(date_objects3)
+            present_date.append(date_objects3)
+        
+        for i in future :
+            date_future = datetime.datetime.strptime( i , "%d-%m-%Y").date()
+            print(date_future)
+            if date_future == max(future_date):
+                c = max(future_date)
+                del(c)
+                
+            
 
 sorting_time()
 
-print(past1 )
+
+print(past)
+print(present)
+print(future)
