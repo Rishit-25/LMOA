@@ -6,7 +6,7 @@ import datetime
 def advance_booking(name , email , adults , number , room_type , preference , gym , mini_bar , extra_bed , checkin_date , checkout_date ):
     
     
-    conn = sqlite3.connect("HOTEL MANAGEMENT 1.db")
+    conn = sqlite3.connect("HOTEL MANAGEMENT.db")
     cursor = conn.cursor()
 
     # FINDIND THE NO OF DAYS THE ROOM IS TRYING TO BE BOOKED

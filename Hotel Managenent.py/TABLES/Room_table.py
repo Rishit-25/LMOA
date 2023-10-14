@@ -3,7 +3,7 @@ import sqlite3
 
                                                       
 def Room_table():
-    conn = sqlite3.connect("HOTEL MANAGEMENT 1.db")
+    conn = sqlite3.connect("HOTEL MANAGEMENT.db")
     cursor = conn.cursor()
         
     cursor.execute('''
@@ -18,7 +18,7 @@ def Room_table():
 Room_table()   
 
 
-conn = sqlite3.connect("HOTEL MANAGEMENT 1.db")
+conn = sqlite3.connect("HOTEL MANAGEMENT.db")
 cursor = conn.cursor()   
 insert_data = [
         101, "standard room"  ,  "nil" , "",

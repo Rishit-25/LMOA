@@ -3,7 +3,7 @@ import sqlite3
 
 
 def Mother_table():
-    conn = sqlite3.connect("HOTEL MANAGEMENT 1.db")
+    conn = sqlite3.connect("HOTEL MANAGEMENT.db")
     cursor = conn.cursor()
         
     cursor.execute('''

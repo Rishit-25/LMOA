@@ -8,7 +8,7 @@ future =[]
 
 def sorting_time():
 
-    conn = sqlite3.connect("HOTEL MANAGEMENT 1.db")
+    conn = sqlite3.connect("HOTEL MANAGEMENT.db")
     cursor = conn.cursor()
 
     cursor.execute("SELECT * FROM Mother_table")
@@ -48,7 +48,7 @@ def sorting_time():
         n = len(future)  
         for k in range(n):
             for j in range(0, n - k - 1):
-                if future[j] > future[j + 1]:
+                if future[j] < future[j + 1]:
                     
                     future[j], future[j + 1] = future[j + 1], future[j]
                 
