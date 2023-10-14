@@ -1,6 +1,71 @@
 import sqlite3
 
 
+
+def Mother_table():
+    conn = sqlite3.connect("HOTEL MANAGEMENT 1.db")
+    cursor = conn.cursor()
+        
+    cursor.execute('''
+                    CREATE TABLE Mother_table (
+                        name  text,
+                        booking_id integer PRIMARY KEY,
+                        phone_no integer,
+                        email_id text,
+                        adults integer,
+                        Room_no integer,
+                        Room_type  text,
+                        gym     text,
+                        mini_bar    text,
+                        extra_bed text,
+                        check_in text,
+                        check_out text,
+                        reserved_dates text,  
+                        Amount_payable integer      )
+                ''')
+
+Mother_table()
+    
+
+
+
+
+
+def Booking_table():
+    conn = sqlite3.connect("HOTEL MANAGEMENT 1.db")
+    cursor = conn.cursor()
+        
+    cursor.execute('''
+                    CREATE TABLE Booking_table (
+                        booking_id INTEGER PRIMARY KEY ,
+                        Room_no  integer  ,
+                        Room_type text,
+                        name text,
+                        email text,
+                        number integer,
+                        adults integer,
+                        preference text ,
+                        gym     text,
+                        mini_bar    text,
+                        extra_bed text,
+                        reserved_dates text
+                       
+                         )
+                ''')
+ 
+Booking_table()
+
+
+
+
+
+
+
+
+
+
+
+
                                                       
 def Room_table():
     conn = sqlite3.connect("HOTEL MANAGEMENT 1.db")
@@ -126,3 +191,5 @@ r= cursor.fetchall()
 print(r)
 
     
+
+  

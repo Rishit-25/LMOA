@@ -4,7 +4,7 @@ import datetime
 
 
 
-def advance_booking(name , email , adults , number , room_type , preference , special_preference , checkin_date , checkout_date ):
+def advance_booking(name , email , adults , number , room_type , preference ,  checkin_date , checkout_date ):
     
     conn = sqlite3.connect("HOTEL MANAGEMENT.db")
     cursor = conn.cursor()
@@ -63,7 +63,7 @@ def advance_booking(name , email , adults , number , room_type , preference , sp
             print(i)
             i=i+1
 
-advance_booking("Rishit Aggarwal" , "2445@gmail.com" , 3 , 647643, "standard room","22-06-2023" , "26-06-2023")
+advance_booking( name = "Rishit Aggarwal" , email = "2445@gmail.com" , adults = 3  , number = 647643 , room_type = "Deluxe room", preference ="Smoking rooms", gym="yes" , mini_bar="yes" , extra_bed ="yes" , checkin_date = "27-06-2023" , checkout_date = "28-06-2023")
         
         
 
