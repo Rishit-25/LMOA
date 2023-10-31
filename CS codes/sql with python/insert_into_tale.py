@@ -4,11 +4,7 @@ conn = sqlite3.connect("ooks.db")
 cursor = conn.cursor()
 
 cursor.execute(
-            '''SELECT * FROM ook_tale
+            '''INSERT INTO  ook_tale VALUES ("UFUS" , "DJHSVHK")
 '''
 )
 
-r= cursor.fetchall()
-
-for i in r:
-    print(r)
