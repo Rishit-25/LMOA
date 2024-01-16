@@ -1,4 +1,4 @@
-d={ "pencil": 20 , "notebook" : 300 , "erser" : 76 }
+d={ "pencil": 20 , "notebook" : 300 , "eraser" : 76 }
 top = -1
 stck=[]
 def push(d):
@@ -9,4 +9,4 @@ def push(d):
             top=top+1
 
 push(d)
-print(stck)
+print("The stack is " , stck)

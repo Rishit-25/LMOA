@@ -6,5 +6,5 @@ def copy(n):
         if i[0] != "@":
             file2.write(i)
 
-n=input("Enetr the name of the file : ")      
+n=input("Enter the name of the file : ")      
 copy(n)

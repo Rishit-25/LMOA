@@ -9,8 +9,11 @@ for i in range(stnum):
     C = int(input("Enter marks in chemistry: "))
     TM =M+E+CS+P+C
     Per = (TM/5)
-    l = ["Name:",Name, "\n", "Math:",str(M), "\n", "Eng:",str(E),"\n","CS:",str(CS),"\n","Phy:",str(P),"\n","Chem:",str(C),"\n","Total Marks:",str(TM),"\n","Per:",str(Per), "\n"]
+    l = ["Name:",Name, "\n", "Math:",str(M), "\n", "Eng:",str(E),"\n","CS:",str(CS),
+         "\n","Phy:",str(P),"\n","Chem:",str(C),"\n","Total Marks:",str(TM),"\n","Per:",str(Per), "\n"]
     myfile.writelines(l)
+    str0 = myfile.readlines()
+    print(str0)
 myfile.seek(0)
 str0 = myfile.readlines()
 print(str0)
